@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
-class Cartel extends Component{
+class Detalle extends Component{
     constructor(props){
         super(props)
         this.state={
@@ -10,12 +10,13 @@ class Cartel extends Component{
     }
 
     render(){
-        return(
-            <article></article>
-
-        )
+        
+        return (
+            <p>hola</p>
+        )    
+        
     }
 
 }
 
-export default Cartel
+export default Detalle

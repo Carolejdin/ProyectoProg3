@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import Formulario from "../Formulario/Formulario"
 
 class Header extends Component{
     constructor(props){
@@ -11,13 +12,17 @@ class Header extends Component{
 
     render(){
         return(
+            <React.Fragment>
+            <img src="img/logo.webp"></img>
              <article >
-                 <h1>PELIS</h1>
                  <Link to="/" exact="true">Home</Link>
                  <Link to="/favoritos">Favoritos</Link>
                  <Link to="/populares">Peliculas Populares</Link>
-                 <Link to="/cartel">Peliculas en cartel</Link>
+                 <Link to="/estrenos">Estrenos</Link>   
             </article>
+            <Formulario/>
+            </React.Fragment>
+            
 
         )
     }
