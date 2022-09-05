@@ -11,7 +11,11 @@ class Footer extends Component{
 
     render(){
         return(
-            <article></article>
+            <React.Fragment>
+           <p>Agustina Breitfeld</p>
+           <p>Ignacia Doldan</p>
+           <p>Carol Ejdin</p>
+           </React.Fragment>
 
         )
     }
