@@ -5,17 +5,10 @@ class Formulario extends Component{
         super(props)
         this.state={
            valor: '',
-           peliculas: []
+           estrenos: []
         }
     }
     
-    // componentDidMount(){
-    // fetch('https://api.themoviedb.org/3/search/movie?api_key=63cdfcbb1edb0e2c2331f8b2cb24ba9b')
-    // .then( response=> response.json())
-    // .then(data => this.setState({peliculas: data.results}))
-    // .catch( error => console.log ('El error fue' + error))
-    // }
-
     evitarSubmit(event){
         event.preventDefault();
     }
@@ -23,16 +16,10 @@ class Formulario extends Component{
     controlarCambios(event){
         console.log('se ejecuta')
         this.setState({valor: event.target.value}, 
-        () => {
-            
-            const peliculasFiltradas = this.state.peliculas.filter(unaPeli => unaPeli.original_title.toLowerCase().includes(this.state.valor.toLocaleLowerCase()))
+        ()=>this.props.funcionFiltrar(this.state.valor)
+        )
+    }    
 
-            this.setState({
-                peliculas: peliculasFiltradas
-            })
-        }     
-        )    //target y value estan en la diapo explicados
-    }
 
 
     render(){
@@ -40,7 +27,6 @@ class Formulario extends Component{
            <form onSubmit={(event) => this.evitarSubmit(event)}>
                <label>Buscar</label>
                <input type='text' onChange={(event)=> this.controlarCambios(event)} value={this.state.valor}/>
-               <input type='submit' value='submit'/>
            </form>
 
         )

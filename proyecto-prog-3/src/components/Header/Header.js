@@ -20,7 +20,6 @@ class Header extends Component{
                  <Link to="/populares">Peliculas Populares</Link>
                  <Link to="/estrenos">Estrenos</Link>   
             </article>
-            <Formulario/>
             </React.Fragment>
             
 

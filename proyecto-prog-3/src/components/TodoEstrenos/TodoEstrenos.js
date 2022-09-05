@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import Estrenos from "../Estrenos/Estrenos"
+import Formulario from "../Formulario/Formulario"
 
 class TodoEstrenos extends Component{
     constructor(props){
@@ -8,6 +9,7 @@ class TodoEstrenos extends Component{
         this.state={
             page: 1,
             estrenos: [],
+            estrenos2: [],
         }
         
     }
@@ -16,7 +18,10 @@ class TodoEstrenos extends Component{
     fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=63cdfcbb1edb0e2c2331f8b2cb24ba9b&page=${this.state.page}`)
     .then( response=> response.json())
     .then(data => this.setState(
-        {estrenos: data.results.concat(this.state.estrenos)}
+        {
+            estrenos: data.results.concat(this.state.estrenos),
+            estrenos2: data.results.concat(this.state.estrenos2)
+        }
     ))
     .catch( error => console.log ('El error fue' + error)) 
     this.setState(
@@ -29,28 +34,37 @@ class TodoEstrenos extends Component{
         fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=63cdfcbb1edb0e2c2331f8b2cb24ba9b&page=${this.state.page}`)
         .then( response=> response.json())
         .then(data => this.setState(
-            {estrenos: data.results.concat(this.state.estrenos),
-            page: this.state.page+1 }
+            {
+                estrenos: data.results,
+                estrenos2: data.results,
+                page: this.state.page+1 }
         ))
         .catch( error => console.log ('El error fue' + error)) 
     }
         
-render(){
-    console.log(this.state.estrenos)
-        return(
-<div>
-    {this.state.estrenos.length === 0 ?
-    <h3> Cargando ... </h3> :
-    <article>
-    <button onClick={()=> this.verMas()}> Traer mas peliculas de estrenos </button>
-     <div>
-        { this.state.estrenos.map((unEstreno, idx)=> <Estrenos key= {unEstreno + idx}  datosEstreno= {unEstreno} />)} 
-    </div> 
-     </article>
- }             
 
-</div>
-        
+    filtrar(texto){
+        const estrenosFiltrados = this.state.estrenos.filter(unEstreno => unEstreno.original_title.toLowerCase().includes(texto.toLocaleLowerCase()))
+        this.setState({
+            estrenos2: estrenosFiltrados
+        })    
+    }
+    
+render(){
+    console.log(this.state.estrenos2)
+        return(
+            <React.Fragment>   
+            {this.state.estrenos.length === 0 ?
+            <h3> Cargando ... </h3> :
+        <article>
+             <Formulario funcionFiltrar={(texto)=>this.filtrar(texto)}/> 
+            <button onClick={()=> this.verMas()}> Traer mas peliculas de estrenos </button>
+        <div>
+            { this.state.estrenos2.map((unEstreno, idx)=> <Estrenos key= {unEstreno + idx}  datosEstreno= {unEstreno} />)} 
+        </div> 
+     </article> 
+        }             
+       </React.Fragment> 
 
         )
     }
