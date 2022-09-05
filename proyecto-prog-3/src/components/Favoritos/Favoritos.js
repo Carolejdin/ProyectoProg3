@@ -12,7 +12,7 @@ class Favoritos extends Component{
     render(){
         return(
             <article></article>
-
+            
         )
     }
 
