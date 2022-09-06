@@ -12,12 +12,12 @@ class Estrenos extends Component{
     render(){
         return(
             <React.Fragment>
-            
+             
            <img src={`https://image.tmdb.org/t/p/w342/${this.props.datosEstreno.poster_path}`} alt='img'/>
            <p>{this.props.datosEstreno.original_title}</p>
            <p>{this.props.datosEstreno.overview}</p>
             <Link to="/detalle">Detalle estreno</Link>
-         
+             
            </ React.Fragment>
 
 

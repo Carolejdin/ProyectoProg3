@@ -12,7 +12,11 @@ class Detalle extends Component{
     render(){
         
         return (
-            <p>hola</p>
+          //  {this.state === 0 ?
+            //    <h3> Cargando ... </h3> :
+            <p>hola</p> 
+        //}
+            
         )    
         
     }

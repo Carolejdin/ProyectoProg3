@@ -53,9 +53,11 @@ class TodoEstrenos extends Component{
 render(){
     console.log(this.state.estrenos2)
         return(
-            <React.Fragment>   
+            <React.Fragment> 
+                  
             {this.state.estrenos.length === 0 ?
             <h3> Cargando ... </h3> :
+           
         <article>
              <Formulario funcionFiltrar={(texto)=>this.filtrar(texto)}/> 
             <button onClick={()=> this.verMas()}> Traer mas peliculas de estrenos </button>
@@ -63,6 +65,11 @@ render(){
             { this.state.estrenos2.map((unEstreno, idx)=> <Estrenos key= {unEstreno + idx}  datosEstreno= {unEstreno} />)} 
         </div> 
      </article> 
+        }
+      { 
+          this.state.estrenos2.length !== 0 ? 
+      '':
+     <p> No hay resultados para su busqueda</p>
         }             
        </React.Fragment> 
 

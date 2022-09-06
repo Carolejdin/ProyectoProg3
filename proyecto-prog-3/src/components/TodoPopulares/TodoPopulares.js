@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import Populares from "../Populares/Populares"
+import Populares from "../Populares/Populares";
+import Formulario from "../Formulario/Formulario"
 
 class TodoPopulares extends Component{
     constructor(props){
@@ -8,6 +9,7 @@ class TodoPopulares extends Component{
         this.state={
             page: 1,
             populares: [],
+            populares2: []
         }
         
     }
@@ -16,7 +18,10 @@ class TodoPopulares extends Component{
     fetch(`https://api.themoviedb.org/3/movie/popular?api_key=63cdfcbb1edb0e2c2331f8b2cb24ba9b&page=${this.state.page}`)
     .then( response=> response.json())
     .then(data => this.setState(
-        {populares: data.results.concat(this.state.populares)}
+        {
+            populares: data.results.concat(this.state.populares),
+            populares2: data.results.concat(this.state.populares2)
+        }
     ))
     .catch( error => console.log ('El error fue' + error)) 
     this.setState(
@@ -29,32 +34,44 @@ class TodoPopulares extends Component{
         fetch(`https://api.themoviedb.org/3/movie/popular?api_key=63cdfcbb1edb0e2c2331f8b2cb24ba9b&page=${this.state.page}`)
         .then( response=> response.json())
         .then(data => this.setState(
-            {populares: data.results.concat(this.state.populares),
-            page: this.state.page+1 }
+            {
+                populares: data.results,
+                populares2: data.results,
+                page: this.state.page+1 
+            }
         ))
         .catch( error => console.log ('El error fue' + error)) 
     }
-        
-render(){
-    console.log(this.state.populares)
-        return(
-<div>
-    {this.state.populares.length === 0 ?
-    <h3> Cargando ... </h3> :
-    <article>
-    <button onClick={()=> this.verMas()}> Traer mas peliculas populares </button>
-     <div>
-     {this.state.populares.map((unaPeli, idx)=> <Populares key= {unaPeli + idx}  datosPeli= {unaPeli} />)}
-    </div> 
-     </article>
- }             
-
-</div>
-        
-
-        )
+    
+    filtrar(texto){
+        const popularesFiltradas = this.state.populares.filter(unaPeli => unaPeli.original_title.toLowerCase().includes(texto.toLocaleLowerCase()))
+        this.setState({
+            populares2: popularesFiltradas
+        })    
     }
 
+render(){
+    console.log(this.state.populares2)
+        return(
+            <React.Fragment>
+            {this.state.populares.length === 0 ?
+                <h3> Cargando ... </h3> :
+            <article>
+                <Formulario funcionFiltrar={(texto)=>this.filtrar(texto)}/>
+                    <button onClick={()=> this.verMas()}> Traer mas peliculas populares </button>
+            <div>
+                {this.state.populares2.map((unaPeli, idx)=> <Populares key= {unaPeli + idx}  datosPeli= {unaPeli} />)}
+            </div> 
+            </article>  
+            }      
+             { 
+          this.state.populares2.length !== 0 ? 
+      '':
+     <p> No hay resultados para su busqueda</p>
+        }     
+            </React.Fragment>
+        )
+    }
 }
 
 export default TodoPopulares

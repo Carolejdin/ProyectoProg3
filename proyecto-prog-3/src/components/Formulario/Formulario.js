@@ -5,7 +5,6 @@ class Formulario extends Component{
         super(props)
         this.state={
            valor: '',
-           estrenos: []
         }
     }
     
