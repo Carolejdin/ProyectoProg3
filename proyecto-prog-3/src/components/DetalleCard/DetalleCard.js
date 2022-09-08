@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
-class Estrenos extends Component{
+class DetalleCard extends Component{
     constructor(props){
         super(props)
         this.state={
             favsMessage: 'Agregar a favoritos',
-            verMas: false, 
-            valor: 'Ver mas',
             
         }
     }
@@ -20,34 +18,18 @@ class Estrenos extends Component{
             favoritos = favoritosToArray
         }
 
-        if(favoritos.includes(this.props.datosEstreno.id)){
+        if(favoritos.includes(this.props.datosDetalle.id)){
             this.setState({
                 favsMessage: 'Quitar de favoritos'
             })
         }
 
     }
-    botonVerMas(){
-        if(this.state.verMas !== false){
-            this.setState(
-                {
-                    verMas: true,
-                    textoBoton: "Ver menos",
-                }
-            )
-        } else {
-            this.setState(
-                {
-                    verMas: false,
-                    textoBoton: "Ver mas",
-                }
-            )
-        }
-    }
 
 
     agregarYQuitarDeFavoritos(id){
-
+        //Tiene que agegar un id dentro de un Array y guardarlo en localstorage.
+        // Si el id ya existe ofrecer al usuario la posibilidad de quitar el id del array de favoritos.
         let favoritos = [];
         let recuperoStorage = localStorage.getItem('favoritos')
 
@@ -57,7 +39,7 @@ class Estrenos extends Component{
         }
 
         //Preguntemos si el id ya está en el array.
-        if(favoritos.includes(id)){ 
+        if(favoritos.includes(id)){ //includes retorna un booleano.
             favoritos = favoritos.filter(unId => unId !== id);
             //mostar al usuario un nuevo texto: agregar a favoritos
             this.setState({
@@ -81,15 +63,15 @@ class Estrenos extends Component{
     render(){
         return(
            <article className="character-card">
-               <h1>{this.props.datosEstreno.original_title}</h1>
-               <img src={`https://image.tmdb.org/t/p/w342/${this.props.datosEstreno.poster_path}`} alt='img'/>
-               <p onClick={()=>this.agregarYQuitarDeFavoritos(this.props.datosEstreno.id)}>{this.state.favsMessage}</p> 
-           <p>{this.props.datosEstreno.overview}</p>
-          <h2>  <Link className="link" to={`/detalle/${this.props.datosEstreno.id}`}>Detalle estreno</Link> </h2>
-         
-          <article className={ this.state.verMas ? 'botonVerMas' : '' }>
-                <button onClick={()=>this.botonVerMas()}> {this.state.textoBoton}</button>
-            </article>
+               <h1>{this.props.datosDetalle.original_title}</h1>
+               <h1> Raiting: {this.props.datosDetalle.vote_average}</h1>
+               <h1> Fecha de estreno: {this.props.datosDetalle.release_date}</h1>
+               <h1> Duracion:{this.props.datosDetalle.runtime}</h1>
+               <h1> Genero:{this.props.datosDetalle.genres.map(function(genero){return genero.name})}</h1>
+               <img src={`https://image.tmdb.org/t/p/w342/${this.props.datosDetalle.poster_path}`} alt='img'/>
+               <p onClick={()=>this.agregarYQuitarDeFavoritos(this.props.datosDetalle.id)}>{this.state.favsMessage}</p>
+               <p>{this.props.datosDetalle.overview}</p>
+             
            </article>
 
 
@@ -99,4 +81,4 @@ class Estrenos extends Component{
 
 }
 
-export default Estrenos
+export default DetalleCard

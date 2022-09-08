@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Populares from "../Populares/Populares"
+import DetalleCard from "../DetalleCard/DetalleCard"
 import {Link} from 'react-router-dom';
 
 class Detalle extends Component{
@@ -31,7 +31,7 @@ class Detalle extends Component{
     render(){
         return(
             <React.Fragment>
-           {this.state.peliculas.map((unaPeli, idx) => <Populares key={unaPeli + idx} datosPeli={unaPeli} />)}
+           {this.state.peliculas.map((unDetalle, idx) => <DetalleCard key={unDetalle + idx} datosDetalle={unDetalle} />)}
            </React.Fragment>
 
         )

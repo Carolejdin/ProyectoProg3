@@ -33,7 +33,6 @@ class Favoritos extends Component{
                             
                     ))
                     .catch(error => console.log('El error es' + error))
-                    console.log(peliculasOk)
                   
             }) 
             
@@ -42,14 +41,13 @@ class Favoritos extends Component{
 
     
         render(){
+            console.log(this.state.peliculas)
         return(
             <React.Fragment>
                 <h2>Mis peliculas favoritas</h2>
                  <section >
              
-             
-                 {this.state.peliculas.map((unEstreno, idx) => <Estrenos key={unEstreno + idx} datosEstreno={unEstreno} />)}
-            
+                 {this.state.peliculas.map((unEstreno, idx) => <Estrenos key={unEstreno + idx} datosEstreno={unEstreno} />)} 
                      
                 </section>
             </React.Fragment>

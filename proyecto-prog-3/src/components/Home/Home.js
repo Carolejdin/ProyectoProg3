@@ -10,7 +10,7 @@ class Home extends Component {
             populares: [],
             estrenos: [],
             valor: '',
-            search: []
+            search: undefined
         }
     }
 
@@ -29,13 +29,14 @@ class Home extends Component {
                 { estrenos: data.results }
             ))
             .catch(error => console.log('El error fue' + error))
+    }
 
+    busqueda(){
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=63cdfcbb1edb0e2c2331f8b2cb24ba9b&query=${this.state.valor}`)
             .then(response => response.json())
             .then(data => this.setState(
                 {
                     search: data.results,
-
                 }
 
             ))
@@ -50,23 +51,31 @@ class Home extends Component {
     controlarCambios(event) {
         console.log('se ejecuta')
         this.setState({ valor: event.target.value },
-            () => console.log(this.state.search)
+        () => this.busqueda()
         )
     }
 
 
     render() {
+        console.log(this.state)
         return (
             <React.Fragment>
-
-
-                {this.state.estrenos.length === 0 ?
-                    <h3 className="Titulo"> Cargando ... </h3> :
-                    <article>
-                        <form className="form" onSubmit={(event) => this.evitarSubmit(event)}>
+                <form className="form" onSubmit={(event) => this.evitarSubmit(event)}>
                             <label>Buscar</label>
                             <input type='text' onChange={(event) => this.controlarCambios(event)} value={this.state.valor} />
-                        </form>
+                </form>
+
+                {this.state.estrenos.length === 0 ?
+                 <h3 className="Titulo"> Cargando ... </h3> : ''}
+
+                {this.state.search !== undefined ?
+                <article>
+                <h2 className="Titulo"> Resultado de busqueda </h2>
+                <section className="card-container">
+                {this.state.search.map((unaPeli, idx) => <Populares key={unaPeli + idx} datosPeli={unaPeli} />)}
+                </section> 
+                </article>:
+                    <article>
 
                         <div>
                             <h2 className="Titulo"> Peliculas populares</h2>
@@ -84,7 +93,9 @@ class Home extends Component {
                             {this.state.estrenos.map((unEstreno, idx) => <Estrenos key={unEstreno + idx} datosEstreno={unEstreno} />)}
                         </section>
                     </article>
-                }
+                    }
+              
+                 
 
 
             </React.Fragment>
