@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import Populares from '../Populares/Populares'
+import Populares from '../Populares/Populares';
+import Estrenos from '../Estrenos/Estrenos'
+
 
 
 class Favoritos extends Component{
@@ -21,11 +23,11 @@ class Favoritos extends Component{
             //recorrer el array y pedirla al endpoint por los datos de cada personaje.
             favoritos.forEach(unIdFavorito => {
                 //pedir por cada id los datos del personaje
-                let url = `https://rickandmortyapi.com/api/character/${unIdFavorito}`
+                let url = `https://api.themoviedb.org/3/movie/${unIdFavorito}?api_key=63cdfcbb1edb0e2c2331f8b2cb24ba9b`
                 fetch(url)
-                    .then(res => res.json())
+                    .then(response => response.json())
                     .then(data => peliculas.push(data))
-                    .catch(e => console.log(e))
+                    .catch(error => console.log('El error es' + error))
             })
 
             console.log(peliculas);
@@ -40,6 +42,11 @@ class Favoritos extends Component{
                  <section >
                     { 
                         this.state.peliculas.map( (unaPeli, idx) => <Populares key={unaPeli+idx} datosPeli={unaPeli}/>)
+                        
+                    }
+                     { 
+                        this.state.peliculas.map( (unEstreno, idx) => <Estrenos key={unEstreno+idx} datosEstreno={unEstreno}/>)
+                        
                     }
                 </section>
             </React.Fragment>
