@@ -10,7 +10,7 @@ import Footer from "./components/Footer/Footer"
 import Populares from "./components/Populares/Populares"
 import TodoPopulares from "./components/TodoPopulares/TodoPopulares"
 import NotFound from "./components/NotFound/NotFound"
-
+import './style.css';
 
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
           <Route path='/favoritos' component={Favoritos}/>
           <Route path='/populares' exact component={TodoPopulares}/>
           <Route path='/estrenos' component={TodoEstrenos}/>
-          <Route path='/detalle' component={Detalle}/>
+          <Route path='/detalle/:id' component={Detalle}/>
           <Route path='' component={NotFound}/>
         </Switch>
       </main>  

@@ -60,14 +60,14 @@ class Estrenos extends Component{
     }
     render(){
         return(
-            <React.Fragment>
-            <p onClick={()=>this.agregarYQuitarDeFavoritos(this.props.datosEstreno.id)}>{this.state.favsMessage}</p> 
-           <img src={`https://image.tmdb.org/t/p/w342/${this.props.datosEstreno.poster_path}`} alt='img'/>
-           <p>{this.props.datosEstreno.original_title}</p>
+           <article className="character-card">
+               <h1>{this.props.datosEstreno.original_title}</h1>
+               <img src={`https://image.tmdb.org/t/p/w342/${this.props.datosEstreno.poster_path}`} alt='img'/>
+               <p onClick={()=>this.agregarYQuitarDeFavoritos(this.props.datosEstreno.id)}>{this.state.favsMessage}</p> 
            <p>{this.props.datosEstreno.overview}</p>
-            <Link to="/detalle">Detalle estreno</Link>
+          <h2>  <Link className="link" to={`/detalle/${this.props.datosEstreno.id}`}>Detalle estreno</Link> </h2>
              
-           </ React.Fragment>
+           </article>
 
 
         )

@@ -1,0 +1,171 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lobster&family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100&display=swap');
+
+/* General */
+*{
+    box-sizing: border-box;
+}
+
+li {
+    list-style-type:none;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+body {
+    margin: 0;
+    background-color: black;
+}
+
+/* Header */
+nav ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 20px;
+    background-color: white;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 20px;
+    background-color: white;
+    color: rgb(242, 248, 249)
+}
+nav ul{
+    background-color: white;
+}
+
+nav li{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 10px;
+    background-color: white;
+   
+}
+
+.imagen {
+    width: 200px;
+    height: 200px;
+}
+
+.navbar{
+    background-color: white;
+    color: black;
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+}
+
+.navbar:hover{
+    color: rgb(199, 82, 101);
+    background-color: white;
+}
+
+
+/* TodoEstrenos y TodoPopulares */
+
+.Titulo{
+    color: white;
+    background-color: rgb(199, 82, 101);
+    font-size: 40px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.card-container {
+    margin-top: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.character-card{
+    font-size: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    width: 20%;
+    border-radius: 5px;
+}
+
+.character-card h1 {
+    margin: 2px 0;
+    list-style-type: none;
+    text-decoration: none;
+    color: white;
+    font-family: 'Antonio', sans-serif;
+}
+
+.link{
+    color: white;
+    font-family: 'Antonio', sans-serif;
+    font-size: 20px;
+}
+
+.link:hover{
+   color: white;
+   text-decoration: underline;
+   text-shadow: 0 0 30px #fff;
+}
+
+.character-card p {
+    margin: 3px 0;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.character-card img{
+    width: 100%;
+    margin-bottom: 20px; 
+}
+
+.character-card:hover{
+background-color:rgb(199, 82, 101) ;
+}
+
+.boton{
+    background-color:rgb(199, 82, 101) ;
+    font-family: 'Antonio', sans-serif;
+    color: white; 
+    height: 50px;  
+    font-size: 20px;
+    margin-top: 50px;
+}
+
+.boton:hover{
+    box-shadow: 0 0 30px rgb(199, 82, 101);
+}
+
+.form{
+    color: rgb(199, 82, 101);
+    background-color:rgb(242, 248, 249);
+}
+
+.error{
+    width: 1500px; 
+    height: 1000px;
+}

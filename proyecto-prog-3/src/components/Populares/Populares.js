@@ -58,16 +58,26 @@ class Populares extends Component{
         console.log(localStorage);
 
     }
+
+    
+        
+            
+       
+    
+   
+
+
     render(){
         return(
-            <React.Fragment>
-          <p onClick={()=>this.agregarYQuitarDeFavoritos(this.props.datosPeli.id)}>{this.state.favsMessage}</p>
-           <img src={`https://image.tmdb.org/t/p/w342/${this.props.datosPeli.poster_path}` } alt='img' />
-           <p>{this.props.datosPeli.original_title}</p>
+            <article className="character-card">
+                 <h1>{this.props.datosPeli.original_title}</h1>
+                 <img src={`https://image.tmdb.org/t/p/w342/${this.props.datosPeli.poster_path}` } alt='img' />
+           <p onClick={()=>this.agregarYQuitarDeFavoritos(this.props.datosPeli.id)}>{this.state.favsMessage}</p>
            <p>{this.props.datosPeli.overview}</p>
-            <Link to="/detalle">Detalle popular</Link>
-         
-           </ React.Fragment>
+           <h2> <Link className="link" to={`/detalle/${this.props.datosPeli.id}`}>Detalle popular</Link> </h2>
+            </article>
+           
+       
 
 
         )

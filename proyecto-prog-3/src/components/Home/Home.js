@@ -33,14 +33,14 @@ class Home extends Component {
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=63cdfcbb1edb0e2c2331f8b2cb24ba9b&query=${this.state.valor}`)
             .then(response => response.json())
             .then(data => this.setState(
-                { 
+                {
                     search: data.results,
 
                 }
-                 
+
             ))
             .catch(error => console.log('El error fue' + error))
-           console.log(this.state.search)
+        console.log(this.state.search)
     }
 
     evitarSubmit(event) {
@@ -53,28 +53,39 @@ class Home extends Component {
             () => console.log(this.state.search)
         )
     }
-    
+
 
     render() {
         return (
             <React.Fragment>
+
+
                 {this.state.estrenos.length === 0 ?
-                    <h3> Cargando ... </h3> :
+                    <h3 className="Titulo"> Cargando ... </h3> :
+                    <article>
+                        <form className="form" onSubmit={(event) => this.evitarSubmit(event)}>
+                            <label>Buscar</label>
+                            <input type='text' onChange={(event) => this.controlarCambios(event)} value={this.state.valor} />
+                        </form>
 
-                    <div>
-                        <Link to="/populares"> Ver todas las peliculas populares</Link>
-                        {this.state.populares.map((unaPeli, idx) => <Populares key={unaPeli + idx} datosPeli={unaPeli} />)}
-                    </div>
+                        <div>
+                            <h2 className="Titulo"> Peliculas populares</h2>
+                            <Link to="/populares"> Ver todas las peliculas populares</Link>
+                        </div>
+                        <section className="card-container">
+                            {this.state.populares.map((unaPeli, idx) => <Populares key={unaPeli + idx} datosPeli={unaPeli} />)}
+                        </section>
+
+                        <div>
+                            <h2 className="Titulo"> Peliculas de estreno</h2>
+                            <Link to="/estrenos"> Ver todas las peliculas de estreno</Link>
+                        </div>
+                        <section className="card-container">
+                            {this.state.estrenos.map((unEstreno, idx) => <Estrenos key={unEstreno + idx} datosEstreno={unEstreno} />)}
+                        </section>
+                    </article>
                 }
-                <div>
-                    <Link to="/estrenos"> Ver todas las peliculas de estreno</Link>
 
-                    {this.state.estrenos.map((unEstreno, idx) => <Estrenos key={unEstreno + idx} datosEstreno={unEstreno} />)}
-                </div>
-            <form onSubmit={(event) => this.evitarSubmit(event)}>
-                <label>Buscar</label>
-                <input type='text' onChange={(event) => this.controlarCambios(event)} value={this.state.valor} />
-            </form>
 
             </React.Fragment>
 
