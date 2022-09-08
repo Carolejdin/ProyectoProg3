@@ -15,7 +15,7 @@ class Formulario extends Component{
     controlarCambios(event){
         console.log('se ejecuta')
         this.setState({valor: event.target.value}, 
-        ()=>this.props.funcionFiltrar(this.state.valor)
+        ()=> this.props.funcionFiltrar(this.state.valor)
         )
     }    
 
