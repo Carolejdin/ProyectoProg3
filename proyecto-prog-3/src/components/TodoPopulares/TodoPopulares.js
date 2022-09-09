@@ -56,14 +56,16 @@ render(){
             <React.Fragment>
             {this.state.populares.length === 0 ?
                 <h3 className="Titulo"> Cargando ... </h3> :
+                <React.Fragment>
+                <Formulario className="form" funcionFiltrar={(texto)=>this.filtrar(texto)}/>
             <article>
                 <h1 className="Titulo"> Peliculas populares</h1>
-                <Formulario className="form" funcionFiltrar={(texto)=>this.filtrar(texto)}/>
                     <button className="boton" onClick={()=> this.verMas()}> Traer mas peliculas populares </button>
             <section className="card-container">
                 {this.state.populares2.map((unaPeli, idx)=> <Populares key= {unaPeli + idx}  datosPeli= {unaPeli} />)}
                 </section> 
             </article>  
+            </React.Fragment>
             }      
              { 
           this.state.populares2.length !== 0 ? 

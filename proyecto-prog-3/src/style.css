@@ -89,11 +89,12 @@ nav li{
     background-color: rgb(199, 82, 101);
     font-size: 40px;
     font-family: 'Oswald', sans-serif;
+
 }
 
 .card-container {
     margin-top: 20px;
-    padding: 10px;
+    padding: 0 10px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -153,7 +154,8 @@ background-color:rgb(199, 82, 101) ;
     color: white; 
     height: 50px;  
     font-size: 20px;
-    margin-top: 50px;
+    margin-top: 15px;
+    margin-left: 10px;
 }
 
 .boton:hover{
@@ -162,12 +164,18 @@ background-color:rgb(199, 82, 101) ;
 
 .form{
     color: rgb(199, 82, 101);
-    background-color:rgb(242, 248, 249);
-    text-align: center;
+    background-color:white;
+    text-align: right;
     font-family: 'Antonio', sans-serif;
     font-size: 25px;
+
 }
 
+.imputForm{
+    margin-bottom: 15px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
 .error{
     width: 1500px; 
     height: 1000px;

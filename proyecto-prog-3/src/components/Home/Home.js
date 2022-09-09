@@ -62,7 +62,7 @@ class Home extends Component {
             <React.Fragment>
                 <form className="form" onSubmit={(event) => this.evitarSubmit(event)}>
                             <label>Buscador</label>
-                            <input type='text' onChange={(event) => this.controlarCambios(event)} value={this.state.valor} />
+                            <input className='imputForm' type='text' onChange={(event) => this.controlarCambios(event)} value={this.state.valor} />
                 </form>
 
                 {this.state.estrenos.length === 0 ?

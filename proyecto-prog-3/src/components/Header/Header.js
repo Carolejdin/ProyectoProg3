@@ -17,7 +17,7 @@ class Header extends Component{
            <ul >
            <li>   <Link className="navbar" to="/" exact="true">Home</Link></li> 
            <li>   <Link className="navbar" to="/favoritos">Favoritos</Link></li> 
-           <li>   <Link className="navbar" to="/populares">Peliculas Populares</Link></li> 
+           <li>   <Link className="navbar" to="/populares">Populares</Link></li> 
            <li>   <Link className="navbar" to="/estrenos">Estrenos</Link>   </li> 
                  </ul>
             </nav>

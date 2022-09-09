@@ -23,9 +23,9 @@ class Formulario extends Component{
 
     render(){
         return(
-           <form onSubmit={(event) => this.evitarSubmit(event)}>
+           <form className='form' onSubmit={(event) => this.evitarSubmit(event)}>
                <label>Buscador</label>
-               <input className="form" type='text' onChange={(event)=> this.controlarCambios(event)} value={this.state.valor}/>
+               <input className='imputForm' type='text' onChange={(event)=> this.controlarCambios(event)} value={this.state.valor}/>
            </form>
 
         )
