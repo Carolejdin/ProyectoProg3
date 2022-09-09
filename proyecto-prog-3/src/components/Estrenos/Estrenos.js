@@ -6,9 +6,7 @@ class Estrenos extends Component{
         super(props)
         this.state={
             favsMessage: 'Agregar a favoritos',
-            verMas: false, 
-            valor: 'Ver mas',
-            
+            boton: false,
         }
     }
     componentDidMount(){
@@ -27,23 +25,14 @@ class Estrenos extends Component{
         }
 
     }
-    botonVerMas(){
-        if(this.state.verMas !== false){
-            this.setState(
-                {
-                    verMas: false,
-                    textoBoton: "Ver menos",
-                }
-            )
-        } else {
-            this.setState(
-                {
-                    verMas: true,
-                    textoBoton: "Ver mas",
-                }
-            )
-        }
+    verMas(){
+        this.setState({ boton:true})
     }
+    verMenos(){
+        this.setState({ boton:false})
+       
+    }
+    
 
 
     agregarYQuitarDeFavoritos(id){
@@ -80,22 +69,29 @@ class Estrenos extends Component{
     }
     render(){
         return(
+            <React.Fragment>
            <article className="character-card">
                <h1>{this.props.datosEstreno.original_title}</h1>
                <img src={`https://image.tmdb.org/t/p/w342/${this.props.datosEstreno.poster_path}`} alt='img'/>
                <p onClick={()=>this.agregarYQuitarDeFavoritos(this.props.datosEstreno.id)}>{this.state.favsMessage}</p> 
-           <p>{this.props.datosEstreno.overview}</p>
           <h2>  <Link className="link" to={`/detalle/${this.props.datosEstreno.id}`}>Detalle estreno</Link> </h2>
          
-          <article className={ this.state.verMas ? 'botonVerMas' : '' }>
-                <button onClick={()=>this.botonVerMas()}> {this.state.valor}</button>
+         {this.state.boton !== false?
+<section>
+<button onClick={()=>this.verMenos()} >Ver menos</button>
+    <p> Descripcion: {this.props.datosEstreno.overview}</p>
+</section>
+: 
+<button onClick= {()=> this.verMas()}> Ver mas</button>
+         }
+                
             </article>
-           </article>
+         
 
-
+            </React.Fragment>
         )
     }
-
+ 
 
 }
 

@@ -6,6 +6,7 @@ class Populares extends Component{
         super(props)
         this.state={
             favsMessage: 'Agregar a favoritos',
+            boton: false,
         }
     }
     componentDidMount(){
@@ -59,7 +60,13 @@ class Populares extends Component{
 
     }
 
-    
+    verMas(){
+        this.setState({ boton:true})
+    }
+    verMenos(){
+        this.setState({ boton:false})
+       
+    }
         
             
        
@@ -69,16 +76,24 @@ class Populares extends Component{
 
     render(){
         return(
+            <React.Fragment>
             <article className="character-card">
                  <h1>{this.props.datosPeli.original_title}</h1>
                  <img src={`https://image.tmdb.org/t/p/w342/${this.props.datosPeli.poster_path}` } alt='img' />
            <p className="link" onClick={()=>this.agregarYQuitarDeFavoritos(this.props.datosPeli.id)}>{this.state.favsMessage}</p>
-           <p>{this.props.datosPeli.overview}</p>
            <h2> <Link className="link" to={`/detalle/${this.props.datosPeli.id}`}>Detalle popular</Link> </h2>
-            </article>
            
-       
-
+           
+           {this.state.boton !== false?
+            <section>
+            <button onClick={()=>this.verMenos()} >Ver menos</button>
+                <p> Descripcion: {this.props.datosPeli.overview}</p>
+            </section>
+            : 
+            <button onClick= {()=> this.verMas()}> Ver mas</button>
+                     }
+                      </article>
+</React.Fragment>
 
         )
     }
