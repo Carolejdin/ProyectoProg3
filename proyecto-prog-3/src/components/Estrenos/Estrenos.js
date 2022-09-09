@@ -31,14 +31,14 @@ class Estrenos extends Component{
         if(this.state.verMas !== false){
             this.setState(
                 {
-                    verMas: true,
+                    verMas: false,
                     textoBoton: "Ver menos",
                 }
             )
         } else {
             this.setState(
                 {
-                    verMas: false,
+                    verMas: true,
                     textoBoton: "Ver mas",
                 }
             )
@@ -88,7 +88,7 @@ class Estrenos extends Component{
           <h2>  <Link className="link" to={`/detalle/${this.props.datosEstreno.id}`}>Detalle estreno</Link> </h2>
          
           <article className={ this.state.verMas ? 'botonVerMas' : '' }>
-                <button onClick={()=>this.botonVerMas()}> {this.state.textoBoton}</button>
+                <button onClick={()=>this.botonVerMas()}> {this.state.valor}</button>
             </article>
            </article>
 
