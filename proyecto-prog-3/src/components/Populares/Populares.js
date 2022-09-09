@@ -72,7 +72,7 @@ class Populares extends Component{
             <article className="character-card">
                  <h1>{this.props.datosPeli.original_title}</h1>
                  <img src={`https://image.tmdb.org/t/p/w342/${this.props.datosPeli.poster_path}` } alt='img' />
-           <p onClick={()=>this.agregarYQuitarDeFavoritos(this.props.datosPeli.id)}>{this.state.favsMessage}</p>
+           <p className="link" onClick={()=>this.agregarYQuitarDeFavoritos(this.props.datosPeli.id)}>{this.state.favsMessage}</p>
            <p>{this.props.datosPeli.overview}</p>
            <h2> <Link className="link" to={`/detalle/${this.props.datosPeli.id}`}>Detalle popular</Link> </h2>
             </article>
