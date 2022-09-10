@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
-import Estrenos from "../Estrenos/Estrenos"
+import PeliculasCard from "../PeliculasCard/PeliculasCard"
 import Formulario from "../Formulario/Formulario"
 
 class TodoEstrenos extends Component{
@@ -63,7 +62,7 @@ render(){
             <h1 className="Titulo"> Peliculas de estreno </h1>
             <button className="boton" onClick={()=> this.verMas()}> Traer mas peliculas de estrenos </button>
         <section className="card-container">
-            { this.state.estrenos2.map((unEstreno, idx)=> <Estrenos key= {unEstreno + idx}  datosEstreno= {unEstreno} />)} 
+            { this.state.estrenos2.map((unaPeli, idx)=> <PeliculasCard key= {unaPeli + idx}  datosPeli= {unaPeli} />)} 
             </section>
         </article> 
         </React.Fragment> 
@@ -72,7 +71,7 @@ render(){
       { 
           this.state.estrenos2.length !== 0 ? 
       '':
-     <p> No hay resultados para su busqueda</p>
+     <p className="resultado"> No hay resultados para su busqueda</p>
         }             
        </React.Fragment> 
 

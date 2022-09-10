@@ -181,6 +181,13 @@ background-color:rgb(199, 82, 101) ;
     height: 1000px;
 }
 
+.resultado{
+    color: #fff;
+    font-family: 'Antonio', sans-serif;
+    font-size: 22px;
+    margin-left: 20px;
+}
+
 /* Favoritos */
 
 .card-container-favs {

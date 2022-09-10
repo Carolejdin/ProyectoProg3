@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import Populares from '../Populares/Populares';
-import Estrenos from '../Estrenos/Estrenos'
+import PeliculasCard from "../PeliculasCard/PeliculasCard"
 
 
 
@@ -46,7 +45,7 @@ class Favoritos extends Component{
             <React.Fragment>
                 <h2 className="Titulo">Mis peliculas favoritas</h2>
                  <section className="card-container-favs">
-                 {this.state.peliculas.map((unEstreno, idx) => <Estrenos key={unEstreno + idx} datosEstreno={unEstreno} />)} 
+                 {this.state.peliculas.map((unaPeli, idx) => <PeliculasCard key={unaPeli + idx} datosPeli={unaPeli} />)} 
                  </section>
               
             </React.Fragment>

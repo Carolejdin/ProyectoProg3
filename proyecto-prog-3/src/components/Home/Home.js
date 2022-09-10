@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Populares from "../Populares/Populares"
-import Estrenos from "../Estrenos/Estrenos"
+import PeliculasCard from "../PeliculasCard/PeliculasCard"
+
 import { Link } from 'react-router-dom';
 
 class Home extends Component {
@@ -72,7 +72,7 @@ class Home extends Component {
                 <article>
                 <h2 className="Titulo"> Resultado de busqueda </h2>
                 <section className="card-container">
-                {this.state.search.map((unaPeli, idx) => <Populares key={unaPeli + idx} datosPeli={unaPeli} />)}
+                {this.state.search.map((unaPeli, idx) => <PeliculasCard key={unaPeli + idx} datosPeli={unaPeli} />)}
                 </section> 
                 </article>:
                     <article>
@@ -82,7 +82,7 @@ class Home extends Component {
                             <Link to="/populares" className="boton"> Ver todas las peliculas populares</Link>
                         </div>
                         <section className="card-container">
-                            {this.state.populares.map((unaPeli, idx) => <Populares key={unaPeli + idx} datosPeli={unaPeli} />)}
+                            {this.state.populares.map((unaPeli, idx) => <PeliculasCard key={unaPeli + idx} datosPeli={unaPeli} />)}
                         </section>
 
                         <div>
@@ -90,7 +90,7 @@ class Home extends Component {
                             <Link to="/estrenos" className="boton"> Ver todas las peliculas de estreno</Link>
                         </div>
                         <section className="card-container">
-                            {this.state.estrenos.map((unEstreno, idx) => <Estrenos key={unEstreno + idx} datosEstreno={unEstreno} />)}
+                            {this.state.estrenos.map((unaPeli, idx) => <PeliculasCard key={unaPeli + idx} datosPeli={unaPeli} />)}
                         </section>
                     </article>
                     }

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
-import Populares from "../Populares/Populares";
+import PeliculasCard from "../PeliculasCard/PeliculasCard";
 import Formulario from "../Formulario/Formulario"
 
 class TodoPopulares extends Component{
@@ -62,7 +61,7 @@ render(){
                 <h1 className="Titulo"> Peliculas populares</h1>
                     <button className="boton" onClick={()=> this.verMas()}> Traer mas peliculas populares </button>
             <section className="card-container">
-                {this.state.populares2.map((unaPeli, idx)=> <Populares key= {unaPeli + idx}  datosPeli= {unaPeli} />)}
+                {this.state.populares2.map((unaPeli, idx)=> <PeliculasCard key= {unaPeli + idx}  datosPeli= {unaPeli} />)}
                 </section> 
             </article>  
             </React.Fragment>
@@ -70,7 +69,7 @@ render(){
              { 
           this.state.populares2.length !== 0 ? 
       '':
-     <p> No hay resultados para su busqueda</p>
+     <p className="resultado"> No hay resultados para su busqueda</p>
         }     
             </React.Fragment>
         )
