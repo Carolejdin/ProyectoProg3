@@ -78,10 +78,10 @@ class Populares extends Component{
         return(
             <React.Fragment>
             <article className="character-card">
-                 <h1>{this.props.datosPeli.original_title}</h1>
+                 <h1>{this.props.datosPeli.title}</h1>
                  <img src={`https://image.tmdb.org/t/p/w342/${this.props.datosPeli.poster_path}` } alt='img' />
            <p className="link" onClick={()=>this.agregarYQuitarDeFavoritos(this.props.datosPeli.id)}>{this.state.favsMessage}</p>
-           <h2> <Link className="link" to={`/detalle/${this.props.datosPeli.id}`}>Detalle popular</Link> </h2>
+           <h2> <Link className="link" to={`/detalle/${this.props.datosPeli.id}`}>Detalle pelicula popular</Link> </h2>
            
            
            {this.state.boton !== false?

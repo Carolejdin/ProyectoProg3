@@ -79,7 +79,7 @@ class Home extends Component {
 
                         <div>
                             <h2 className="Titulo"> Peliculas populares</h2>
-                            <Link to="/populares"> Ver todas las peliculas populares</Link>
+                            <Link to="/populares" className="boton"> Ver todas las peliculas populares</Link>
                         </div>
                         <section className="card-container">
                             {this.state.populares.map((unaPeli, idx) => <Populares key={unaPeli + idx} datosPeli={unaPeli} />)}
@@ -87,7 +87,7 @@ class Home extends Component {
 
                         <div>
                             <h2 className="Titulo"> Peliculas de estreno</h2>
-                            <Link to="/estrenos"> Ver todas las peliculas de estreno</Link>
+                            <Link to="/estrenos" className="boton"> Ver todas las peliculas de estreno</Link>
                         </div>
                         <section className="card-container">
                             {this.state.estrenos.map((unEstreno, idx) => <Estrenos key={unEstreno + idx} datosEstreno={unEstreno} />)}

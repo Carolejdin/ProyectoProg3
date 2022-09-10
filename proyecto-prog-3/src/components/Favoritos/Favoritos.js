@@ -44,12 +44,11 @@ class Favoritos extends Component{
             console.log(this.state.peliculas)
         return(
             <React.Fragment>
-                <h2>Mis peliculas favoritas</h2>
-                 <section >
-             
+                <h2 className="Titulo">Mis peliculas favoritas</h2>
+                 <section className="card-container-favs">
                  {this.state.peliculas.map((unEstreno, idx) => <Estrenos key={unEstreno + idx} datosEstreno={unEstreno} />)} 
-                     
-                </section>
+                 </section>
+              
             </React.Fragment>
         )
     }

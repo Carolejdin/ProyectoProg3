@@ -180,3 +180,15 @@ background-color:rgb(199, 82, 101) ;
     width: 1500px; 
     height: 1000px;
 }
+
+/* Favoritos */
+
+.card-container-favs {
+    margin-top: 20px;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}

@@ -63,7 +63,7 @@ class DetalleCard extends Component{
     render(){
         return(
            <article className="character-card">
-               <h1>{this.props.datosDetalle.original_title}</h1>
+               <h1>{this.props.datosDetalle.title}</h1>
                <h1> Raiting: {this.props.datosDetalle.vote_average}</h1>
                <h1> Fecha de estreno: {this.props.datosDetalle.release_date}</h1>
                <h1> Duracion:{this.props.datosDetalle.runtime}</h1>
