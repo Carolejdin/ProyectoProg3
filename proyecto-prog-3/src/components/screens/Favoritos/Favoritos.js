@@ -7,7 +7,7 @@ class Favoritos extends Component{
         super();
         this.state = {
             peliculas:[],
-            favsMessage: 'Quitar a favoritos',
+            favsMessage: 'Quitar de favoritos',
         }
     }
 
