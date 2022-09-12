@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import PeliculasCard from "../PeliculasCard/PeliculasCard";
-import Formulario from "../Formulario/Formulario"
+import PeliculasCard from "../../PeliculasCard/PeliculasCard";
+import Formulario from "../../Formulario/Formulario"
 
 class TodoPopulares extends Component{
     constructor(props){

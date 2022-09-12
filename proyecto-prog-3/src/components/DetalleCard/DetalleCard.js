@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 
 class DetalleCard extends Component{
     constructor(props){
@@ -62,16 +61,17 @@ class DetalleCard extends Component{
     }
     render(){
         return(
-           <article className="character-card">
-               <h1>{this.props.datosDetalle.title}</h1>
-               <h1> Raiting: {this.props.datosDetalle.vote_average}</h1>
-               <h1> Fecha de estreno: {this.props.datosDetalle.release_date}</h1>
-               <h1> Duracion:{this.props.datosDetalle.runtime}</h1>
-               <h1> Genero:{this.props.datosDetalle.genres.map(function(genero){return genero.name})}</h1>
-               <img src={`https://image.tmdb.org/t/p/w342/${this.props.datosDetalle.poster_path}`} alt='img'/>
-               <p onClick={()=>this.agregarYQuitarDeFavoritos(this.props.datosDetalle.id)}>{this.state.favsMessage}</p>
-               <p>{this.props.datosDetalle.overview}</p>
-             
+           <article className="detalle-card">
+               <h1 className= "titulo1">{this.props.datosDetalle.title}</h1>
+               <img className="imagen-detalle" src={`https://image.tmdb.org/t/p/w342/${this.props.datosDetalle.poster_path}`} alt='img'/>
+             <section className="info-detalle"> 
+               <h1 className= "titulo2"> Raiting: {this.props.datosDetalle.vote_average}</h1>
+               <h1 className= "titulo2"> Fecha de estreno: {this.props.datosDetalle.release_date}</h1>
+               <h1 className= "titulo2"> Duracion: {this.props.datosDetalle.runtime}</h1>
+               <h1 className= "titulo2"> Genero: {this.props.datosDetalle.genres.map(function(genero){return genero.name})}</h1>
+               <p className= "titulo3"> {this.props.datosDetalle.overview}</p>
+               <p className="boton-detalle" onClick={()=>this.agregarYQuitarDeFavoritos(this.props.datosDetalle.id)}>{this.state.favsMessage}</p>
+               </section>
            </article>
 
 

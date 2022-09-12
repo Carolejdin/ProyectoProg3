@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PeliculasCard from "../PeliculasCard/PeliculasCard"
+import PeliculasCard from "../../PeliculasCard/PeliculasCard"
 
 import { Link } from 'react-router-dom';
 
@@ -79,7 +79,7 @@ class Home extends Component {
 
                         <div>
                             <h2 className="Titulo"> Peliculas populares</h2>
-                            <Link to="/populares" className="boton"> Ver todas las peliculas populares</Link>
+                            <Link to="/populares" className="boton-todo"> Ver todas las peliculas populares</Link>
                         </div>
                         <section className="card-container">
                             {this.state.populares.map((unaPeli, idx) => <PeliculasCard key={unaPeli + idx} datosPeli={unaPeli} />)}
@@ -87,7 +87,7 @@ class Home extends Component {
 
                         <div>
                             <h2 className="Titulo"> Peliculas de estreno</h2>
-                            <Link to="/estrenos" className="boton"> Ver todas las peliculas de estreno</Link>
+                            <Link to="/estrenos" className="boton-todo"> Ver todas las peliculas de estreno</Link>
                         </div>
                         <section className="card-container">
                             {this.state.estrenos.map((unaPeli, idx) => <PeliculasCard key={unaPeli + idx} datosPeli={unaPeli} />)}

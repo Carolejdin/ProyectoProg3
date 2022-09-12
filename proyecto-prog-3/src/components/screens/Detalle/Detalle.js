@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import DetalleCard from "../DetalleCard/DetalleCard"
-import {Link} from 'react-router-dom';
+import DetalleCard from "../../DetalleCard/DetalleCard"
 
 class Detalle extends Component{
     constructor(props){
@@ -30,7 +29,7 @@ class Detalle extends Component{
 
     render(){
         return(
-            <React.Fragment>
+            <React.Fragment >
            {this.state.peliculas.map((unDetalle, idx) => <DetalleCard key={unDetalle + idx} datosDetalle={unDetalle} />)}
            </React.Fragment>
 

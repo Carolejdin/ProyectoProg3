@@ -23,7 +23,6 @@ class PeliculasCard extends Component{
                 favsMessage: 'Quitar de favoritos'
             })
         }
-
     }
 
     agregarYQuitarDeFavoritos(id){
@@ -37,20 +36,25 @@ class PeliculasCard extends Component{
             favoritos = favoritosToArray
         }
 
-        //Preguntemos si el id ya está en el array.
-        if(favoritos.includes(id)){ //includes retorna un booleano.
-            favoritos = favoritos.filter(unId => unId !== id);
+         //Preguntemos si el id ya está en el array.
+        if(favoritos.includes(this.props.datosPeli.id)){ //includes retorna un booleano.
+            favoritos = favoritos.filter(unId => unId !== this.props.datosPeli.id);
             //mostar al usuario un nuevo texto: agregar a favoritos
-            this.setState({
-                favsMessage: 'Agregar a favoritos'
-            })
+            if (this.props.borrar) {
+                this.props.borrar(this.props.datosPeli.id)
+            } else {
+                this.setState({
+                    favsMessage: 'Agregar a favoritos'
+                })
+            }
         } else {
-            favoritos.push(id);
+            favoritos.push(this.props.datosPeli.id);
             //mostar un texto diferente al usuario. Quitar de favs
             this.setState({
                 favsMessage: 'Quitar de favoritos'
             })
         }
+
 
 
         let favoritosToString = JSON.stringify(favoritos);
@@ -68,10 +72,6 @@ class PeliculasCard extends Component{
        
     }
         
-            
-       
-    
-   
 
 
     render(){
@@ -81,16 +81,15 @@ class PeliculasCard extends Component{
                  <h1>{this.props.datosPeli.title}</h1>
                  <img src={`https://image.tmdb.org/t/p/w342/${this.props.datosPeli.poster_path}` } alt='img' />
            <p className="link" onClick={()=>this.agregarYQuitarDeFavoritos(this.props.datosPeli.id)}>{this.state.favsMessage}</p>
-           <h2> <Link className="link" to={`/detalle/${this.props.datosPeli.id}`}>Detalle pelicula</Link> </h2>
-           
+           <h2> <Link className="link" to={`/detalle/${this.props.datosPeli.id}`}> Detalle pelicula</Link> </h2>
            
            {this.state.boton !== false?
             <section>
-            <button onClick={()=>this.verMenos()} >Ver menos</button>
+            <button className="boton-ver" onClick={()=>this.verMenos()} >Ver menos</button>
                 <p> Descripcion: {this.props.datosPeli.overview}</p>
             </section>
             : 
-            <button onClick= {()=> this.verMas()}> Ver mas</button>
+            <button className="boton-ver" onClick= {()=> this.verMas()}> Ver mas</button>
                      }
                       </article>
 </React.Fragment>
