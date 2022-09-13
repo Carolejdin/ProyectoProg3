@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 
 class Footer extends Component{
     constructor(props){
@@ -12,9 +11,13 @@ class Footer extends Component{
     render(){
         return(
             <React.Fragment>
-           <p>Agustina Breitfeld</p>
-           <p>Ignacia Doldan</p>
-           <p>Carol Ejdin</p>
+      <div class="footer">
+        <h5>Agustina Breitfeld</h5>
+        <h5>|</h5>
+        <h5>Ignacia Doldan</h5>
+        <h5>|</h5>
+        <h5>Carol Ejdin</h5>
+     </div>
            </React.Fragment>
 
         )
