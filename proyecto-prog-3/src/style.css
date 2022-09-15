@@ -288,3 +288,19 @@ background-color:rgb(199, 82, 101) ;
 .boton-todo:hover{
     box-shadow: 0 0 30px rgb(199, 82, 101);
 }
+
+/* Footer */
+.footer{
+ 
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 1%;
+        padding: 2%;
+        color: rgb(199, 82, 101);
+        font-size: 20px;
+        position:static; 
+        bottom: 0;
+    
+}

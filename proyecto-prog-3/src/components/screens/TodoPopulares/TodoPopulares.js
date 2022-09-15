@@ -58,7 +58,7 @@ render(){
                 <React.Fragment>
                 <Formulario className="form" funcionFiltrar={(texto)=>this.filtrar(texto)}/>
             <article>
-                <h1 className="Titulo"> Peliculas populares</h1>
+                <h1 className="Titulo"> Peliculas populares </h1>
                     <button className="boton" onClick={()=> this.verMas()}> Traer mas peliculas populares </button>
             <section className="card-container">
                 {this.state.populares2.map((unaPeli, idx)=> <PeliculasCard key= {unaPeli + idx}  datosPeli= {unaPeli} />)}
