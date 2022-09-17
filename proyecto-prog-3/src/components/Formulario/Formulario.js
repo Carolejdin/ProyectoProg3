@@ -19,8 +19,6 @@ class Formulario extends Component{
         )
     }    
 
-
-
     render(){
         return(
            <form className='form' onSubmit={(event) => this.evitarSubmit(event)}>

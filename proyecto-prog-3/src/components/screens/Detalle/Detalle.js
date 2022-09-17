@@ -17,7 +17,7 @@ class Detalle extends Component{
         fetch(url)
             .then(response => response.json())
             .then(data => peliculasOk.push(data))
-            .then(data => this.setState(
+            .then(() => this.setState(
                 {
                     peliculas: peliculasOk }
                     
