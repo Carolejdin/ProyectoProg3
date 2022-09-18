@@ -7,7 +7,6 @@ class Favoritos extends Component{
         super();
         this.state = {
             peliculas:[],
-            favsMessage: 'Quitar de favoritos',
         }
     }
 
@@ -19,9 +18,7 @@ class Favoritos extends Component{
             favoritos = JSON.parse(recuperoStorage) 
             let peliculasOk = [];
 
-            //recorrer el array y pedirla al endpoint por los datos de cada personaje.
             favoritos.forEach(unIdFavorito => {
-                //pedir por cada id los datos del personaje
                 let url = `https://api.themoviedb.org/3/movie/${unIdFavorito}?api_key=63cdfcbb1edb0e2c2331f8b2cb24ba9b`
                 fetch(url)
                     .then(response => response.json())
@@ -50,11 +47,8 @@ borrar(id){
     }
 
     //Preguntemos si el id ya está en el array.
-    if(favoritos.includes(id)){ //includes retorna un booleano.
+    if(favoritos.includes(id)){ 
         favoritos = favoritos.filter(unId => unId !== id);
-       // favoritos.push(id);
-       //unid los id que tengo en el array
-        //mostar un texto diferente al usuario. Quitar de favs
         this.setState({
         peliculas: this.state.peliculas.filter(unaPeli => unaPeli.id !== id) 
         })

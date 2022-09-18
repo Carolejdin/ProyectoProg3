@@ -14,7 +14,7 @@ class Formulario extends Component{
 
     controlarCambios(event){
         console.log('se ejecuta')
-        this.setState({valor: event.target.value}, 
+        this.setState({valor: event.target.value}, //agarrar el valor que pusieron en el imput
         ()=> this.props.funcionFiltrar(this.state.valor)
         )
     }    
