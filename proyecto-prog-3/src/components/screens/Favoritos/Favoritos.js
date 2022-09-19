@@ -71,7 +71,6 @@ borrar(id){
                  <section className="card-container-favs">
                  {this.state.peliculas.map((unaPeli, idx) => <PeliculasCard key={unaPeli + idx} datosPeli={unaPeli} borrar={(peliFiltro)=> this.borrar(peliFiltro)} />)} 
                  </section>
-              
             </React.Fragment>
         )
     }
