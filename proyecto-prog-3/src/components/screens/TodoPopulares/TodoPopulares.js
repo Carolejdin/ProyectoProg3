@@ -13,21 +13,6 @@ class TodoPopulares extends Component{
         
     }
 
- verMas(){
-    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=63cdfcbb1edb0e2c2331f8b2cb24ba9b&page=${this.state.page}`)
-    .then( response=> response.json())
-    .then(data => this.setState(
-        {
-            populares: data.results.concat(this.state.populares),
-            populares2: data.results.concat(this.state.populares2)
-        }
-    ))
-    .catch( error => console.log ('El error fue' + error)) 
-    this.setState(
-        { page: this.state.page+1 }
-    )
- }
-
     componentDidMount()
     {
         fetch(`https://api.themoviedb.org/3/movie/popular?api_key=63cdfcbb1edb0e2c2331f8b2cb24ba9b&page=${this.state.page}`)
@@ -48,6 +33,21 @@ class TodoPopulares extends Component{
             populares2: popularesFiltradas
         })    
     }
+ verMas(){
+    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=63cdfcbb1edb0e2c2331f8b2cb24ba9b&page=${this.state.page}`)
+    .then( response=> response.json())
+    .then(data => this.setState(
+        {
+            populares: data.results.concat(this.state.populares),
+            populares2: data.results.concat(this.state.populares2)
+        }
+    ))
+    .catch( error => console.log ('El error fue' + error)) 
+    this.setState(
+        { page: this.state.page+1 }
+    )
+ }
+
 
 render(){
     console.log(this.state.populares2)

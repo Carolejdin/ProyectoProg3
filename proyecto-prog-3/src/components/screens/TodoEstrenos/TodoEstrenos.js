@@ -13,6 +13,19 @@ class TodoEstrenos extends Component{
         
     }
 
+    componentDidMount()
+    {
+        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=63cdfcbb1edb0e2c2331f8b2cb24ba9b&page=${this.state.page}`)
+        .then( response=> response.json())
+        .then(data => this.setState(
+            {
+                estrenos: data.results,
+                estrenos2: data.results,
+                page: this.state.page+1 }
+        ))
+        .catch( error => console.log ('El error fue' + error)) 
+    }
+
  verMas(){
     fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=63cdfcbb1edb0e2c2331f8b2cb24ba9b&page=${this.state.page}`)
     .then( response=> response.json())
@@ -27,21 +40,7 @@ class TodoEstrenos extends Component{
         { page: this.state.page+1 }
     )
  }
-
-    componentDidMount()
-    {
-        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=63cdfcbb1edb0e2c2331f8b2cb24ba9b&page=${this.state.page}`)
-        .then( response=> response.json())
-        .then(data => this.setState(
-            {
-                estrenos: data.results,
-                estrenos2: data.results,
-                page: this.state.page+1 }
-        ))
-        .catch( error => console.log ('El error fue' + error)) 
-    }
         
-
     filtrar(texto){
         const estrenosFiltrados = this.state.estrenos.filter(unEstreno => unEstreno.original_title.toLowerCase().includes(texto.toLocaleLowerCase()))
         this.setState({
